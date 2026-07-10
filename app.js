@@ -3,6 +3,7 @@ const allowlistInput = document.getElementById("allowlist-input");
 const saveConfigButton = document.getElementById("save-config-btn");
 const signOutButton = document.getElementById("sign-out-btn");
 const configStatus = document.getElementById("config-status");
+const configDetail = document.getElementById("config-detail");
 const authStatus = document.getElementById("auth-status");
 const googleSlot = document.getElementById("google-signin-slot");
 const resultPanel = document.getElementById("result-panel");
@@ -38,12 +39,24 @@ function saveConfig() {
     .map(value => value.trim().toLowerCase())
     .filter(Boolean);
 
-  localStorage.setItem(STORAGE_KEY, JSON.stringify({
-    clientId: state.clientId,
-    allowlist: state.allowlist
-  }));
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      clientId: state.clientId,
+      allowlist: state.allowlist
+    }));
+  } catch (error) {
+    console.error("Failed to save config", error);
+    renderConfigStatus("Save failed", "danger");
+    configDetail.textContent = "This browser blocked local storage, so the gate config was not saved.";
+    return;
+  }
 
   renderConfigStatus("Config saved", "success");
+  configDetail.textContent = [
+    `Client ID saved: ${state.clientId ? "Yes" : "No"}.`,
+    `Approved emails saved: ${state.allowlist.length}.`,
+    `Saved at ${new Date().toLocaleTimeString()}.`
+  ].join(" ");
   renderGoogleButton();
 }
 
@@ -168,6 +181,9 @@ function hydrateForm() {
   clientIdInput.value = state.clientId;
   allowlistInput.value = state.allowlist.join("\n");
   renderConfigStatus(state.clientId ? "Loaded saved config" : "Config not saved", state.clientId ? "success" : "");
+  configDetail.textContent = state.clientId
+    ? `Loaded saved settings from this browser. Approved emails: ${state.allowlist.length}.`
+    : "Saved settings stay in this browser.";
 }
 
 loadConfig();

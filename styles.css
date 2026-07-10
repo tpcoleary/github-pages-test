@@ -124,6 +124,12 @@ button {
   resize: vertical;
 }
 
+.config-detail {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
 .status {
   display: inline-flex;
   align-items: center;

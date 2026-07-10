@@ -86,12 +86,42 @@ button {
 
 .config-panel,
 .signin-panel,
-.result-panel {
+.result-panel,
+.trust-panel {
   margin-top: 24px;
   padding: 20px;
   border-radius: 16px;
   border: 1px solid var(--panel-border);
   background: rgba(255, 255, 255, 0.03);
+}
+
+.trust-text {
+  margin: 0;
+  color: var(--muted);
+}
+
+.trust-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.trust-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--panel-border);
+  color: var(--text);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.trust-links a:hover {
+  border-color: rgba(78, 197, 255, 0.4);
+  background: rgba(78, 197, 255, 0.08);
 }
 
 .field {

@@ -10,11 +10,21 @@
 <body>
   <main class="shell">
     <section class="card">
-      <p class="eyebrow">GitHub Pages Test</p>
-      <h1>Google Sign-In Gate</h1>
+      <p class="eyebrow">Personal OAuth Test Page</p>
+      <h1>GitHub Pages Google Identity Demo</h1>
       <p class="lede">
-        This static test app uses Google sign-in and a local allowlist to create a lightweight gate on GitHub Pages.
+        This is a personal developer test page for validating Google Identity Services on a static GitHub Pages site.
       </p>
+      <div class="trust-panel">
+        <p class="trust-text">
+          Source and ownership are intentionally visible here so the page reads as a personal test harness, not a generic sign-in wall.
+        </p>
+        <div class="trust-links">
+          <a href="https://github.com/tpcoleary/github-pages-test" target="_blank" rel="noopener">View Source on GitHub</a>
+          <a href="https://github.com/tpcoleary" target="_blank" rel="noopener">GitHub Profile</a>
+          <a href="https://developers.google.com/identity/gsi/web/guides/overview" target="_blank" rel="noopener">Google Identity Docs</a>
+        </div>
+      </div>
       <div class="config-panel">
         <label class="field">
           <span>Google Client ID</span>
@@ -47,8 +57,9 @@
 
       <ul class="facts">
         <li>Runs entirely as static HTML, CSS, and JavaScript on GitHub Pages</li>
-        <li>Uses Google Identity Services for sign-in</li>
-        <li>Checks the signed-in email against a local allowlist</li>
+        <li>Uses Google Identity Services only for this client-side demo</li>
+        <li>Checks the signed-in email against a local browser allowlist</li>
+        <li>Designed for personal testing, not public production authentication</li>
       </ul>
       <p class="note">
         This is a light client-side gate for testing. It is useful friction, not strong security.

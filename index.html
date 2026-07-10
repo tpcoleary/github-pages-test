@@ -5,24 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GitHub Pages Test</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
   <main class="shell">
     <section class="card">
       <p class="eyebrow">GitHub Pages Test</p>
-      <h1>Static Site Publish Check</h1>
+      <h1>Google Sign-In Gate</h1>
       <p class="lede">
-        This is a minimal test app to verify GitHub repo creation, push, and GitHub Pages publishing.
+        This static test app uses Google sign-in and a local allowlist to create a lightweight gate on GitHub Pages.
       </p>
-      <div class="actions">
-        <button id="ping-btn" type="button">Run Test Action</button>
-        <span id="status" class="status">Waiting</span>
+      <div class="config-panel">
+        <label class="field">
+          <span>Google Client ID</span>
+          <input id="client-id-input" type="text" placeholder="Paste your Google web app client ID">
+        </label>
+        <label class="field">
+          <span>Approved Emails</span>
+          <textarea id="allowlist-input" rows="4" placeholder="one@gmail.com&#10;two@gmail.com"></textarea>
+        </label>
+        <div class="actions">
+          <button id="save-config-btn" type="button">Save Gate Config</button>
+          <span id="config-status" class="status">Config not saved</span>
+        </div>
       </div>
+
+      <div class="signin-panel">
+        <div id="google-signin-slot" class="google-slot"></div>
+        <div class="actions">
+          <button id="sign-out-btn" type="button" class="secondary-btn">Reset Session</button>
+          <span id="auth-status" class="status">Waiting for sign-in</span>
+        </div>
+      </div>
+
+      <section id="result-panel" class="result-panel" hidden>
+        <h2>Gate Result</h2>
+        <p id="result-message" class="result-message"></p>
+        <dl id="profile-list" class="profile-list"></dl>
+      </section>
+
       <ul class="facts">
-        <li>Repo-backed static HTML</li>
-        <li>No framework build required</li>
-        <li>Suitable for direct GitHub Pages branch deployment</li>
+        <li>Runs entirely as static HTML, CSS, and JavaScript on GitHub Pages</li>
+        <li>Uses Google Identity Services for sign-in</li>
+        <li>Checks the signed-in email against a local allowlist</li>
       </ul>
+      <p class="note">
+        This is a light client-side gate for testing. It is useful friction, not strong security.
+      </p>
     </section>
   </main>
   <script src="app.js"></script>

@@ -78,6 +78,52 @@ button {
   cursor: pointer;
 }
 
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  border: 1px solid var(--panel-border);
+}
+
+.config-panel,
+.signin-panel,
+.result-panel {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid var(--panel-border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field + .field {
+  margin-top: 16px;
+}
+
+.field span,
+.result-panel h2 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--panel-border);
+  background: rgba(7, 16, 27, 0.9);
+  color: var(--text);
+  padding: 12px 14px;
+  font: inherit;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
 .status {
   display: inline-flex;
   align-items: center;
@@ -94,6 +140,42 @@ button {
   background: rgba(69, 214, 127, 0.12);
 }
 
+.status.is-warning {
+  color: #ffe8a3;
+  border-color: rgba(255, 195, 74, 0.35);
+  background: rgba(255, 195, 74, 0.12);
+}
+
+.status.is-danger {
+  color: #ffd4d4;
+  border-color: rgba(255, 91, 91, 0.35);
+  background: rgba(255, 91, 91, 0.12);
+}
+
+.google-slot {
+  min-height: 46px;
+}
+
+.result-message {
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+.profile-list {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 8px 12px;
+}
+
+.profile-list dt {
+  color: var(--muted);
+}
+
+.profile-list dd {
+  margin: 0;
+}
+
 .facts {
   margin: 24px 0 0;
   padding-left: 20px;
@@ -102,4 +184,10 @@ button {
 
 .facts li + li {
   margin-top: 8px;
+}
+
+.note {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 14px;
 }

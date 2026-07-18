@@ -1,3 +1,5 @@
+This is a test repository.
+
 # GitHub Pages Test
 
 Minimal static site used to verify GitHub repository creation, push, GitHub Pages publishing, and a lightweight Google sign-in gate.
